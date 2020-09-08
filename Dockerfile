@@ -19,7 +19,12 @@ tar zxf hdiet-1.0.tar.gz -C /usr/local/apache2/build && \
 sed -i -e 's@PRODUCTION/Web@/usr/local/apache2/htdocs@' Makefile && \
 sed -i -e 's@PRODUCTION/Cgi@/usr/local/apache2/cgi-bin@' Makefile && \
 sed -i -e 's@PRODUCTION/Exe@/usr/local/apache2/bin@' Makefile && \
-cd /usr/local/apache2/build/ && PERL5LIB=/usr/local/apache2/build make dist && \
+sed -i -e 's@DEVELOPMENT/Web@/usr/local/apache2/htdocs@' Makefile && \
+sed -i -e 's@DEVELOPMENT/Cgi@/usr/local/apache2/cgi-bin@' Makefile && \
+sed -i -e 's@DEVELOPMENT/Exe@/usr/local/apache2/bin@' Makefile && \
+sed -i -e 's@/server/pub@/usr/local/apache2/htdocs@' jig.pl && \
+sed -i -e 's@/server/bin@/usr/local/apache2/bin@' jig.pl && \
+PERL5LIB=/usr/local/apache2/build make dist && \
 cp /usr/local/apache2/htdocs/webapp.html /usr/local/apache2/htdocs/index.html
 
 
