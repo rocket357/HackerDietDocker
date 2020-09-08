@@ -3,7 +3,7 @@ FROM httpd:latest
 WORKDIR /usr/local/apache2/build
 
 RUN apt-get update && \
-apt-get -y install libapache2-mod-perl2 libgd-gd2-perl cpanminus wget certbot python-certbot-apache make build-essential weblint
+apt-get -y install libapache2-mod-perl2 libgd-gd2-perl libssl-dev cpanminus wget certbot python-certbot-apache make build-essential weblint
 
 RUN wget -O nuweb.tar.gz https://sourceforge.net/project/nuweb/files/latest/download && \
 mkdir -p /usr/local/apache2/build/nuweb && \
