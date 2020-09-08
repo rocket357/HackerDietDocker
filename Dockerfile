@@ -24,7 +24,9 @@ sed -i -e 's@DEVELOPMENT/Cgi@/usr/local/apache2/cgi-bin@' Makefile && \
 sed -i -e 's@DEVELOPMENT/Exe@/usr/local/apache2/bin@' Makefile && \
 sed -i -e 's@/server/pub@/usr/local/apache2/htdocs@' jig.pl && \
 sed -i -e 's@/server/bin@/usr/local/apache2/bin@' jig.pl && \
+mkdir -p /usr/local/apache2/cgi-bin/HDiet && \
 PERL5LIB=/usr/local/apache2/build make dist && \
+PERL5LIB=/usr/local/apache2/build make publish && \
 cp /usr/local/apache2/htdocs/webapp.html /usr/local/apache2/htdocs/index.html
 
 
