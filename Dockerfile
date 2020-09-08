@@ -18,7 +18,9 @@ tar zxf hdiet-1.0.tar.gz -C /usr/local/apache2/build && \
 sed -i -e 's@PRODUCTION/Web@/usr/local/apache2/htdocs@' Makefile && \
 sed -i -e 's@PRODUCTION/Cgi@/usr/local/apache2/cgi-bin@' Makefile && \
 sed -i -e 's@PRODUCTION/Exe@/usr/local/apache2/bin@' Makefile && \
-cd /usr/local/apache2/build/ && PERL5LIB=/usr/local/apache2/build make dist
+cd /usr/local/apache2/build/ && PERL5LIB=/usr/local/apache2/build make dist && \
+cp /usr/local/apache2/htdocs/webapp.html /usr/local/apache2/htdocs/index.html
+
 
 # Uncomment and ensure your container can be reached on port 80 publicly
 # to generate your own Lets Encrypt certs during container build...
